@@ -515,7 +515,7 @@ var myContract =  new web3.eth.Contract( [
   requestProduct(id) {
     this.setState({ loading: true })
     this.state.myContract.methods.requestProduct(id).send({ from: this.state.account })
-    .once('receipt', (receipt) => {
+    .then('receipt', (receipt) => {
             if(receipt.code===4001){
               console.log("transaction declined!");
               this.setState({ loading: false })
